@@ -1,8 +1,11 @@
+//==========================================================================
+//  C++ Implementation of the papaer "The importance of Diversity in the Variable Space in the Design of Multi-objective Evolutionary Algorithms"
+//  Authors: Carlos Segura, Joel Chacón, Oliver Shutze
+//  Last modification: 27/04/2021
+// ===========================================================================
 #ifndef _PROBLEM_H
 #define _PROBLEM_H
-
 #include "cec09.h"
-//// Toolkit includes. //////////////////////////////////////////////////////
 #include "Toolkit/ExampleProblems.h"
 #include "Toolkit/TransFunctions.h"
 using namespace WFG::Toolkit;
@@ -546,12 +549,13 @@ long double S2(long double x,long double gamma)
    else if( x>=0.25 && x<0.5) return (1.0 + pow(4.0*x-1.0, gamma))/4.0;
    else if( x>=0.5 && x<0.75) return (3.0 - pow(3.0-4.0*x, gamma))/4.0;
    else if( x>=0.75 && x<=1.0) return (3.0 + pow(4.0*x-3.0, gamma))/4.0;
+   else return -1000;
 }
 long double Q(long double z)
 {
   return 4.0*z*z - cos(8.0*M_PI*z)+1.0;
 }
-double bt1(vector<double> &f, vector<double> &x)
+void bt1(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
@@ -564,7 +568,7 @@ double bt1(vector<double> &f, vector<double> &x)
    f[0] = x[0] + sum1;
    f[1] = 1.0 - sqrt(x[0]) + sum2;
 }
-double bt2(vector<double> &f, vector<double> &x)
+void bt2(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = (1.0/5.0)*ratiobias;
@@ -577,7 +581,7 @@ double bt2(vector<double> &f, vector<double> &x)
    f[0] = x[0] + sum1;
    f[1] = 1.0 - sqrt(x[0]) + sum2;
 }
-double bt3(vector<double> &f, vector<double> &x)
+void bt3(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
@@ -590,7 +594,7 @@ double bt3(vector<double> &f, vector<double> &x)
    f[0] = S1(x[0], 0.02) + sum1;
    f[1] = 1.0 - sqrt(S1(x[0], 0.02)) + sum2;
 }
-double bt4(vector<double> &f, vector<double> &x)
+void bt4(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
@@ -603,7 +607,7 @@ double bt4(vector<double> &f, vector<double> &x)
    f[0] = S2(x[0], 0.06) + sum1;
    f[1] = 1.0 - sqrt(S2(x[0], 0.06)) + sum2;
 }
-double bt5(vector<double> &f, vector<double> &x)
+void bt5(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
@@ -616,7 +620,7 @@ double bt5(vector<double> &f, vector<double> &x)
    f[0] = x[0] + sum1;
    f[1] = (1.0 - x[0])*(1.0-x[0]*sin(8.5*M_PI*x[0])) + sum2;
 }
-double bt6(vector<double> &f, vector<double> &x)
+void bt6(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-4*ratiobias;
@@ -629,7 +633,7 @@ double bt6(vector<double> &f, vector<double> &x)
    f[0] = x[0] + sum1;
    f[1] = 1.0 - sqrt(x[0]) + sum2;
 }
-double bt7(vector<double> &f, vector<double> &x)
+void bt7(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
@@ -643,7 +647,7 @@ double bt7(vector<double> &f, vector<double> &x)
    f[1] = 1.0 - sqrt(x[0]) + sum2;
 }
 
-double bt8(vector<double> &f, vector<double> &x)
+void bt8(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
@@ -656,7 +660,7 @@ double bt8(vector<double> &f, vector<double> &x)
    f[0] = x[0] + sum1;
    f[1] = 1.0 - sqrt(x[0]) + sum2;
 }
-double bt9(vector<double> &f, vector<double> &x)
+void bt9(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
    long double sum1 = 0.0, sum2 = 0.0, sum3=0.0, theta = 1.0e-9*ratiobias;

@@ -1,3 +1,10 @@
+/*==========================================================================
+//  C++ Implementation of the papaer "The importance of Diversity in the Variable Space in the Design of Multi-objective Evolutionary Algorithms"
+//  Authors: Carlos Segura, Joel Chacón, Oliver Shutze
+/
+//  Last modification: 27/04/2021
+// ===========================================================================*/
+
 #ifndef __INDIVIDUAL_H_
 #define __INDIVIDUAL_H_
 

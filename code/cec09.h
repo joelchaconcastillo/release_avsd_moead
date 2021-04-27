@@ -1,16 +1,10 @@
-/*! \file	cec09.h
 
-\brief	CEC09 test suite
-
-\author Aimin ZHOU
-\author Department of Computer Science,
-\author University of Essex, 
-\author Colchester, CO4 3SQ, U.K
-\author azhou@essex.ac.uk
-
-\date	Jul.21 2008 create v0.1
-\date	Jul.22 2008 v0.2
-*/
+/*==========================================================================
+//  C++ Implementation of the papaer "The importance of Diversity in the Variable Space in the Design of Multi-objective Evolutionary Algorithms"
+//  Authors: Carlos Segura, Joel Chacón, Oliver Shutze
+/
+//  Last modification: 27/04/2021
+// ===========================================================================*/
 #ifndef AZ_CEC09_H
 #define AZ_CEC09_H
 
