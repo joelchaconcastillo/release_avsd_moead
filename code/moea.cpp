@@ -82,7 +82,7 @@ void PrintHelp()
         cout << "--nobj number of objectives"<<endl;
         cout << "--Postfix postfix that is appended to the resulting filename"<<endl;
         cout << "--ratioBias ratio of the bias value in the BT's problems (default 1 is the same than the one proposed in the main work)"<<endl;
-        cout << "example: \"./AVSD_MOED --n 100 --nfes 2500000 --nvar 6 --Instance DTLZ1 --Path . --Dist_factor 0.1 --Zero_diversity 50 --nobj 2 --F 0.5 --CR 0.0 \" \n notes: \n The resulting last front is the last \"n\" lines that are saved in POF and POS directories i.e. each 10\% percent of stopping criterion is save a population."<<endl;
+        cout << "example: \"./AVSD_MOEAD --n 100 --nfes 2500000 --nvar 6 --Instance DTLZ1 --Path . --Dist_factor 0.1 --Zero_diversity 50 --nobj 2 --F 0.5 --CR 0.0 \" \n notes: \n The resulting last front is the last \"n\" lines that are saved in POF and POS directories i.e. each 10\% percent of stopping criterion is save a population."<<endl;
 }
 void SetConfiguration(int argc, char*argv[])
 {

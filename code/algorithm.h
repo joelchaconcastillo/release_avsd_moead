@@ -402,9 +402,9 @@ void AVSDMOEAD::update_external_file()
 }
 void AVSDMOEAD::realmutation(CIndividual &ind, double rate)
 {
-    long double rnd, delta1, delta2, mut_pow, deltaq;
-    long double y, yl, yu, val, xy;
-    long double eta_m = etam;
+    double rnd, delta1, delta2, mut_pow, deltaq;
+    double y, yl, yu, val, xy;
+    double eta_m = etam;
     for (int j=0; j<nvar; j++)
     {
         if (rnd_uni <= rate)

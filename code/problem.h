@@ -531,19 +531,19 @@ void minusdtlz4(std::vector<double> &F, std::vector<double> &X)
       F[i] = -F[i] +1.0 + k/4.0 ;
   } // for
 }
-long double D1(long double g, long double theta)
+double D1(double g, double theta)
 {
    return (g*g) + (1.0-exp(-(g*g)/theta))/5.0;
 }
-long double D2(long double g, long double theta)
+double D2(double g, double theta)
 {
    return (g*g) + (pow(fabs(g), theta)/5.0);
 }
-long double S1(long double x, long double gamma)
+double S1(double x, double gamma)
 {
   return pow(fabs(x), gamma);
 }
-long double S2(long double x,long double gamma)
+double S2(double x,double gamma)
 {
    if( x>=0.0 && x<0.25) return (1.0 - pow(1.0-4.0*x, gamma))/4.0;
    else if( x>=0.25 && x<0.5) return (1.0 + pow(4.0*x-1.0, gamma))/4.0;
@@ -551,17 +551,17 @@ long double S2(long double x,long double gamma)
    else if( x>=0.75 && x<=1.0) return (3.0 + pow(4.0*x-3.0, gamma))/4.0;
    else return -1000;
 }
-long double Q(long double z)
+double Q(double z)
 {
   return 4.0*z*z - cos(8.0*M_PI*z)+1.0;
 }
 void bt1(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if(!(j%2)) sum1 += D1(yj, theta);
       if((j%2)!=0) sum2 += D1(yj, theta);
   } 
@@ -571,10 +571,10 @@ void bt1(vector<double> &f, vector<double> &x)
 void bt2(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = (1.0/5.0)*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = (1.0/5.0)*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if(!(j%2)) sum1 += D2(yj, theta);
   if(j%2) sum2 += D2(yj, theta);
   } 
@@ -584,10 +584,10 @@ void bt2(vector<double> &f, vector<double> &x)
 void bt3(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if(!(j%2)) sum1 += D1(yj, theta);
       if(j%2) sum2 += D1(yj, theta);
   } 
@@ -597,10 +597,10 @@ void bt3(vector<double> &f, vector<double> &x)
 void bt4(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-8*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if(!(j%2)) sum1 += D1(yj, theta);
       if(j%2) sum2 += D1(yj, theta);
   } 
@@ -610,10 +610,10 @@ void bt4(vector<double> &f, vector<double> &x)
 void bt5(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-10*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if(!(j%2)) sum1 += D1(yj, theta);
       if(j%2) sum2 += D1(yj, theta);
   } 
@@ -623,10 +623,10 @@ void bt5(vector<double> &f, vector<double> &x)
 void bt6(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-4*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-4*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - pow(x[0],0.5+((1.5*(j-1.0))/(n-1.0)));
+      double yj = x[j-1] - pow(x[0],0.5+((1.5*(j-1.0))/(n-1.0)));
       if(!(j%2)) sum1 += D1(yj, theta);
       if(j%2) sum2 += D1(yj, theta);
   } 
@@ -636,10 +636,10 @@ void bt6(vector<double> &f, vector<double> &x)
 void bt7(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - sin(6.0*M_PI*x[0]);
+      double yj = x[j-1] - sin(6.0*M_PI*x[0]);
       if(!(j%2)) sum1 += D1(yj, theta);
       if(j%2) sum2 += D1(yj, theta);
    } 
@@ -650,10 +650,10 @@ void bt7(vector<double> &f, vector<double> &x)
 void bt8(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, theta = 1.0e-3*ratiobias;
    for(int j = 2; j <= n; j++)
    {
-      long double yj = x[j-1] - pow(x[0],0.5+((1.5*(j-1.0))/(n-1.0)));
+      double yj = x[j-1] - pow(x[0],0.5+((1.5*(j-1.0))/(n-1.0)));
       if(!(j%2)) sum1 += Q(D1(yj, theta));
       if(j%2) sum2 += Q(D1(yj, theta));
    } 
@@ -663,10 +663,10 @@ void bt8(vector<double> &f, vector<double> &x)
 void bt9(vector<double> &f, vector<double> &x)
 {
    int n = x.size();
-   long double sum1 = 0.0, sum2 = 0.0, sum3=0.0, theta = 1.0e-9*ratiobias;
+   double sum1 = 0.0, sum2 = 0.0, sum3=0.0, theta = 1.0e-9*ratiobias;
    for(int j = 3; j <= n; j++)
    {
-      long double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
+      double yj = x[j-1] - sin((j*M_PI)/(2.0*n));
       if((j%3)==0) sum1 += D1(yj, theta);
       if((j%3)==1) sum2 += D1(yj, theta);
       if((j%3)==2) sum3 += D1(yj, theta);
