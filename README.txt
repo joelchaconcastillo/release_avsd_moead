@@ -39,6 +39,6 @@ In addition, each final file is composed by the archived R2 information (the fir
 Additional notes:
 *The set of weight vectors are indicated in the dir "code/Weights/Weight".
 *The directory "code/Toolkit" contains the author's code of the WFG test-problems.
-
-#####################
+*The directory "code/Optimals" contains the optimal Pareto Fronts that were applied to attain the normalized Hypervolume (HV) and the Inverted Generational Disance Plus (IGD+). Thus each filename is built by INSTACE_OBJECTIVE.txt, for instance the discretized optimal front of DTLZ1 in two objectives is the file "code/Optimals/DTLZ1_2.txt".
+####################
 Please feel free to contact either "joelchaconcastillo@gmail.com" of "joel.chacon@cimat.mx" with Joel Chacón Castillo for any concern related with the code.
